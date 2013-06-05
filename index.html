@@ -4,9 +4,59 @@
 	<head>
 		<title>Synsanity: Latest News &amp; Entertainment Videos</title>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/foundation.css">
 		<link rel="stylesheet" href="css/style.css">
+		<script src="http://codeforbrowser.com/demos/jquery-min.js"></script>
+		<script>
+			$(function() { 
+				$.ajax({
+					url:'./entertainment.xml',
+					dataType:'xml',
+					type:'GET',
+					success:function(xml) {
+						$(xml).find('item').each(function() {
+	                        //assigning feed video item data to variable
+						    var title = $(this).find("title").text(); 
+							var des = $(this).find("description").text();
+							var link = $(this).find("link").text();
+	                        var thumb = $(this).find("thumbnail").text();
+	                        var link2= 'http://ads.geo.rnmd.net/playVideo?siteId=rhythm_test&userId=testuser&content=' + link;
+
+	                        //Building the image div
+	                        var $img = $('<img>').attr('src',thumb);
+	                        var $img2 = $('<div class="video-thumb"></div>').append($img);
+	                        var $img3 = $('<div class="small-4 columns video-item"></div>').append($img2);
+
+	                        //Building the video title as h3
+							var $link = $('<a></a>').attr('href',link2).attr('target','_self').html(title);
+	                        var $link2 = $('<h3></h3>').append($link);
+
+	                        //Building the video description as p
+							var $des = $('<p></p>').html(des);
+
+	                        //Building the video title + description div
+	                        var $videoItem = $('<div class="video-description"></div>').append($link2,$des);
+	                        var $videoItem2 = $('<div class="small-8 columns video-item"></div>').append($videoItem);
+
+							var pubDate = new Date($(this).find("pubDate").text()); 
+							var day = pubDate.getDate();
+							var month = pubDate.getMonth() + 1;
+							var year = pubDate.getFullYear();
+							var date = day + '/' + month + '/' + year;
+							var $date = $('<div class="date"></div>').text(date)	
+
+							var wrapper = "<div class='row'>";
+							$(".feed-container").append($(wrapper).append($img3,$videoItem2));					})
+
+					},
+					error:function() {
+						alert("I am sorry, But I can't fetch that feed");
+					}
+				});
+			});
+		</script>
 	</head>
 
 	<body>
@@ -16,24 +66,29 @@
 			</div>
 		</div>
 		<div class="row black">
-			<div class="small-8 columns small-offset-4">	
-				<div class="row">
-					<div class="small-3 columns">
-						<a href="#"> Featured </a>
-					</div>
-					<div class="small-3 columns">
-						<a href="#"> News </a>
-					</div>
-					<div class="small-3 columns">
-						<a href="#"> Entertainment </a>
-					</div>
-					<div class="small-3 columns">
-						<a href="#"> About </a>
-					</div>
-				</div>
+			<div class="small-10 columns small-offset-2">	
+				<div class="top-nav"><h2><a href="#"> About </a></h2></div>
+				<div class="top-nav"><h2><a href="#"> Entertainment </a></h2></div>
+				<div class="top-nav"><h2><a href="#"> News </a></h2></div>
+				<div class="top-nav"><h2><a href="#"> Featured </a></h2></div>
 			</div>
 		</div>
+		<div onclick="window.location = './detail-page.html'" class="row">
+			<div class="small-4 columns video-item">	
+				<div class="video-thumb"> <img src="images/photo_1369958589000-1-HD.jpg">  </div>
+			</div>
+			<div class="small-8 columns video-item">	
+				<div class="video-description">
+					<h3>Protesters in Cairo call for culture minister's dismissal</h3>
+					<p>CAIRO (AFP) - (AFP) - Opponents of Egypt's Islamist President Mohamed Morsi and employees of the Cairo Opera House called on Thursday for the dismissal of Culture Minister...</p>
+				 </div>
+			</div>
+		</div>
+		<div class="feed-container">
+		<div class="row black">
+			<div class="small-12 columns">
 
-
+			</div>
+		</div>
 	</body>
 </html>

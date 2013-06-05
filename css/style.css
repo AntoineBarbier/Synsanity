@@ -3,16 +3,69 @@ body {
 
 }
 
-
 .black {
 	background-color: #000;
 }
 
-.nav-border {
-	border-left: 
-}
-
-
 h1 {
 	color: white;
 }
+
+h2 {
+		font-size: 1.5rem;
+}
+
+.top-nav {
+	float: right;
+	margin: 0.2rem;
+	padding: 0.5rem;
+}
+
+.video-item {
+	height: 10rem;
+	border-bottom: 1px dotted #000;
+	margin: 1rem 0;
+}
+
+.video-thumb img{
+	max-height: 9.5rem;
+}
+
+/* Mobile & Wide Mobile Layout
+ */
+ @media only screen and (max-width: 767px) {
+	h1 {
+		font-size: 1.25rem;
+	}
+
+	h2 {
+		font-size: 0.6rem;
+	}
+
+	h3 {
+		font-size: 0.6rem;
+	}
+
+	.video-description p {
+		font-size: 0.5rem;
+	}
+
+	.video-thumb img{
+		max-height: 4.5rem;
+	}
+
+	.video-item {
+		height: 5rem;
+		border-bottom: 1px dotted #000;
+		margin: 0.5rem 0;
+	}
+
+	.top-nav {
+		float: right;
+		margin: 0.2rem;
+		/*border-left: 1px dotted #fff;*/
+		padding: 0.1rem;
+	}
+}
+
+
