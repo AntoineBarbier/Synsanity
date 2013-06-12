@@ -1,7 +1,7 @@
-function feedParsing() { 
+function feedParsing(feedUrl) { 
 				$.ajax({
 					//url:'./entertainment.xml',
-					url:'http://pipes.yahoo.com/pipes/pipe.run?_id=d810aeb319ae15771df07ee602120203&_render=rss',
+					url: feedUrl,
 					dataType:'xml',
 					type:'GET',
 					success:function(xml) {
