@@ -3,7 +3,11 @@ body {
 
 }
 
-.black {
+form {
+
+}
+
+.black-background {
 	background-color: #000;
 }
 
@@ -12,7 +16,7 @@ h1 {
 }
 
 h2 {
-		font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 .top-nav {
@@ -21,14 +25,25 @@ h2 {
 	padding: 0.5rem;
 }
 
-.video-item {
-	height: 10rem;
-	border-bottom: 1px dotted #000;
-	margin: 1rem 0;
+.bottom-nav {
+	text-align: center;
 }
+
+.video-item {
+/*	height: 10rem;
+*/	border-bottom: 1px dotted #000;
+	margin: 1rem 1rem;
+}
+
+/* .video-item:last-child {
+	border: none;
+} */
 
 .video-thumb img{
 	max-height: 9.5rem;
+	margin-top: .5rem;
+/*	position: absolute;
+	top: 50%;*/
 }
 
 /* Mobile & Wide Mobile Layout
@@ -39,14 +54,14 @@ h2 {
 	}
 
 	h2 {
-		font-size: 0.6rem;
+		font-size: 0.7rem;
 	}
 
 	h3 {
-		font-size: 0.6rem;
+		font-size: 0.7rem;
 	}
 
-	.video-description p {
+	p {
 		font-size: 0.5rem;
 	}
 
@@ -55,9 +70,9 @@ h2 {
 	}
 
 	.video-item {
-		height: 5rem;
-		border-bottom: 1px dotted #000;
-		margin: 0.5rem 0;
+/*		height: 5rem;
+*/		border-bottom: 1px dotted #000;
+		margin: 0.2rem 0;
 	}
 
 	.top-nav {
@@ -65,6 +80,10 @@ h2 {
 		margin: 0.2rem;
 		/*border-left: 1px dotted #fff;*/
 		padding: 0.1rem;
+	}
+
+	.feedback-form {
+		font-size: 0.6rem;
 	}
 }
 

@@ -8,55 +8,12 @@
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/foundation.css">
 		<link rel="stylesheet" href="css/style.css">
-
-	</head>
-
-	<body>
-		<div>
-			<div class="row black-background">
-				<div class="small-12 columns">	
-					<h1>Synsanity</h1>
-				</div>
-			</div>
-			<div class="row black-background">
-				<div class="small-10 columns small-offset-2">	
-<!-- 					<div class="top-nav"><h2><a href="about.html"> About </a></h2></div>
- -->				<div class="top-nav"><h2><a href="#"> Entertainment </a></h2></div>
-					<div class="top-nav"><h2><a href="news.html"> News </a></h2></div>
-					<div class="top-nav"><h2><a href="#"> Featured </a></h2></div>
-				</div>
-			</div>
-		</div> 
-<!--
-		<div onclick="window.location = './detail-page.html'" class="row">
-			<div class="video-item">
-				<div class="small-4 columns">	
-					<div class="video-thumb"> <img src="images/photo_1369958589000-1-HD.jpg">  </div>
-				</div>
-				<div class="small-8 columns">	
-					<div class="video-description">
-						<h3>Protesters in Cairo call for culture minister's dismissal</h3>
-						<p>CAIRO (AFP) - (AFP) - Opponents of Egypt's Islamist President Mohamed Morsi and employees of the Cairo Opera House called on Thursday for the dismissal of Culture Minister...</p>
-					 </div>
-				</div>
-			</div>
-		</div>
--->
-		<div class="feed-container">
-		</div>
-		<div class="row black-background">
-			<div class="small-12 columns">
-				<div class="bottom-nav"><h2><a href="about.html"> About us</a></h2></div>
-			</div>
-		</div>
- 		
-
  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script>
 			$(function() { 
 				$.ajax({
 					//url:'./entertainment.xml',
-					url:'http://pipes.yahoo.com/pipes/pipe.run?_id=d810aeb319ae15771df07ee602120203&_render=rss',
+					url:'http://pipes.yahoo.com/pipes/pipe.run?_id=06e5d5d7fab2a22e6eb097299b97476d&_render=rss',
 					dataType:'xml',
 					type:'GET',
 					success:function(xml) {
@@ -85,7 +42,6 @@
 	                        var $videoItem = $('<div class="video-description"></div>').append($link2,$des);
 	                        var $videoItem2 = $('<div class="small-8 columns"></div>').append($videoItem);
 
-	                        //Fetching the pub date
 							var pubDate = new Date($(this).find("pubDate").text()); 
 							var day = pubDate.getDate();
 							var month = pubDate.getMonth() + 1;
@@ -95,8 +51,8 @@
 
 							var wrapperRow = "<div class='row'>";
 							var wrapperVideoItem = "<div class='video-item'>";
-							$(".feed-container").append($(wrapperRow).append(($(wrapperVideoItem)).append($img3,$videoItem2)));				
-						})
+							$(".feed-container").append($(wrapperRow).append(($(wrapperVideoItem)).append($img3,$videoItem2)));					})
+
 					},
 					error:function() {
 						alert("I am sorry, But I can't fetch that feed");
@@ -104,5 +60,32 @@
 				});
 			});
 		</script>
+	</head>
+
+	<body>
+		<div>
+			<div class="row black-background">
+				<div class="small-12 columns">	
+					<h1>Synsanity</h1>
+				</div>
+			</div>
+			<div class="row black-background">
+				<div class="small-10 columns small-offset-2">	
+<!-- 					<div class="top-nav"><h2><a href="about.html"> About </a></h2></div>
+ -->				<div class="top-nav"><h2><a href="#"> Entertainment </a></h2></div>
+					<div class="top-nav"><h2><a href="news.html"> News </a></h2></div>
+					<div class="top-nav"><h2><a href="index.html"> Featured </a></h2></div>
+				</div>
+			</div>
+		</div> 
+
+		<div class="feed-container">
+		</div>
+		<div class="row black-background">
+			<div class="small-12 columns">
+				<div class="bottom-nav"><h2><a href="about.html"> About us</a></h2></div>
+			</div>
+		</div>
+
 	</body>
 </html>
