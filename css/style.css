@@ -33,8 +33,7 @@ h2 {
 }
 
 .video-item {
-/*	height: 10rem;
-*/	border-bottom: 1px dotted #000;
+	border-bottom: 1px dotted #000;
 	margin: 1rem 1rem;
 }
 

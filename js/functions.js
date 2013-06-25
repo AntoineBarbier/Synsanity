@@ -8,6 +8,7 @@ function feedParsing(feedUrl) {
 		type:'GET',
 		success:function(xml) {
 			$(xml).find('item').each(function() {
+				
                 //assigning feed video item data to variable
 			    var title = $(this).find("title").text(); 
 				var des = $(this).find("description").text();
