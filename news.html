@@ -11,21 +11,28 @@
 	</head>
 
 	<body>
-		<div>
-			<div class="row black-background">
-				<div class="small-12 columns">	
-					<h1>Synsanity</h1>
-				</div>
-			</div>
-			<div class="row black-background">
-				<div class="small-10 columns small-offset-2">	
-<!-- 				<div class="top-nav"><h2><a href="about.html"> About </a></h2></div>
- -->				<div class="top-nav"><h2><a href="entertainment.html"> Entertainment </a></h2></div>
-					<div class="top-nav"><h2><a href="#"> News </a></h2></div>
-					<div class="top-nav"><h2><a href="index.html"> Featured </a></h2></div>
-				</div>
-			</div>
-		</div> 
+		<div class="fixed">
+			<nav class="top-bar">
+		        <ul class="title-area">
+			        <!-- Title Area -->
+			        <li class="name">
+			            <h1><a href="index.html">Synsanity</a></h1>
+			        </li>
+			        <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+		        </ul>
+
+				<section class="top-bar-section">
+		            <ul class="right">
+			            <li class="divider hide-for-small"></li>
+			            <li><a href="index.html">Featured</a></li>
+			            <li class="divider hide-for-small"></li>
+			            <li><a href="entertainment.html">Entertainment</a></li>
+			            <li class="divider hide-for-small"></li>
+			            <li><a href="news.html">News</a></li>
+		            </ul>
+		        </section>
+		    </nav>
+		</div>
 
 		<div class="feed-container">
 		</div>
@@ -38,6 +45,13 @@
  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="http://ads.rnmd.net/js/rnmd_cs.js"></script>
  		<script src="js/functions.js" ></script>
+ 		<script src="js/foundation.min.js"></script>
+	    
+	    <script>
+	      $(document)
+	        .foundation();
+	    </script>
+
 		<script>
 		feedUrl = 'http://pipes.yahoo.com/pipes/pipe.run?_id=06e5d5d7fab2a22e6eb097299b97476d&_render=rss';
 		feedParsing(feedUrl);

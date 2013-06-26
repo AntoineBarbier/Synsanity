@@ -12,32 +12,50 @@
 
 	<body>
 		<div class="fixed">
-			<div class="row black-background">
-				<div class="small-12 columns">	
-					<h1>Synsanity</h1>
-				</div>
-			</div>
-			<div class="row black-background">
-				<div class="small-10 columns small-offset-2">	
-					<div class="top-nav"><h2><a href="entertainment.html"> Entertainment </a></h2></div>
-					<div class="top-nav"><h2><a href="news.html"> News </a></h2></div>
-					<div class="top-nav"><h2><a href="#"> Featured </a></h2></div>
-				</div>
-			</div>
+			<nav class="top-bar">
+		        <ul class="title-area">
+		            <!-- Title Area -->
+		            <li class="name">
+		            	<h1><a href="#">Synsanity</a></h1>
+		            </li>
+		            <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+		        </ul>
+
+		        <section class="top-bar-section">
+		            <ul class="right">
+		            	<li class="divider hide-for-small"></li>
+		             	<li><a href="index.html">Featured</a></li>
+		            	<li class="divider hide-for-small"></li>
+		            	<li><a href="entertainment.html">Entertainment</a></li>
+		            	<li class="divider hide-for-small"></li>
+		            	<li><a href="news.html">News</a></li>
+		            </ul>
+		        </section>
+		    </nav>
 		</div> 
 
 		<div class="feed-container">
 		</div>
 
-		<div class="row black-background">
-			<div class="small-12 columns">
-				<div class="bottom-nav"><h2><a href="about.html"> About us</a></h2></div>
-			</div>
-		</div>
+		<footer>
+			<nav class="top-bar">
+		          <section class="top-bar-section">
+		            <ul>
+		              <li class="name text-center"><a href="about.html">About</a></li>
+		            </ul>
+		          </section>
+		        </nav>
+		</footer>
 
  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script src="http://ads.rnmd.net/js/rnmd_cs.js"></script>
  		<script src="js/functions.js" ></script>
+ 		<script src="js/foundation.min.js"></script>
+	    
+	    <script>
+	      $(document)
+	        .foundation();
+	    </script>
 		
 		<script>
 		feedUrl = 'http://pipes.yahoo.com/pipes/pipe.run?_id=4284e31d39db05677e64918395b0498c&_render=rss';

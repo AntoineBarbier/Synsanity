@@ -1,6 +1,7 @@
 
-//Function to parse feeds
+//Function to parse feeds and build a row for each video element
 function feedParsing(feedUrl) { 
+	var i = 0;
 	$.ajax({
 		//url:'./entertainment.xml',
 		url: feedUrl,
@@ -12,9 +13,7 @@ function feedParsing(feedUrl) {
                 //assigning feed video item data to variable
 			    var title = $(this).find("title").text(); 
 				var des = $(this).find("description").text();
-				//var link = $(this).find("guid").text();
 				var link = $(this).find("enclosure").attr("url");
-				//var link = $(this).find("[media\\:content]").attr("url");
 				console.log(link);
                 var thumb = $(this).find("link").text();
                 var link2= '#';
@@ -35,20 +34,28 @@ function feedParsing(feedUrl) {
 				var $des = $('<p></p>').html(des);
 
                 //Building the video title + description div
-                var $videoItem = $('<div class="video-description"></div>').append($link4,$des);
+				var $videoItem = $('<div class="video-description"></div>').append($link4,$des);
                 var $videoItem2 = $('<div class="small-8 columns"></div>').append($videoItem);
 
                 //Fetching the pub date
-				var pubDate = new Date($(this).find("pubDate").text()); 
-				var day = pubDate.getDate();
-				var month = pubDate.getMonth() + 1;
-				var year = pubDate.getFullYear();
-				var date = day + '/' + month + '/' + year;
-				var $date = $('<div class="date"></div>').text(date)	
+				// var pubDate = new Date($(this).find("pubDate").text()); 
+				// var day = pubDate.getDate();
+				// var month = pubDate.getMonth() + 1;
+				// var year = pubDate.getFullYear();
+				// var date = day + '/' + month + '/' + year;
+				// var $date = $('<div class="date"></div>').text(date)	
 
+				// Wrapping the video elements within the row and video-item divs
 				var wrapperRow = "<div class='row'>";
-				var wrapperVideoItem = "<div class='video-item'>";
-				$(".feed-container").append($(wrapperRow).append(($(wrapperVideoItem)).append($img3,$videoItem2)));				
+				var wrapperVideoItem;
+                if (i == 0) {
+                	wrapperVideoItem = "<div class='first-video-item'>";
+                }
+                else {
+                	wrapperVideoItem = "<div class='video-item'>";
+				}
+				$(".feed-container").append($(wrapperRow).append(($(wrapperVideoItem)).append($img3,$videoItem2)));	
+				i++;			
 			})
 		},
 		error:function() {
