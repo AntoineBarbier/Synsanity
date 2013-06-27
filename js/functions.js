@@ -11,7 +11,8 @@ function feedParsing(feedUrl) {
 			$(xml).find('item').each(function() {
 				
                 //assigning feed video item data to variable
-			    var title = $(this).find("title").text(); 
+			    var title = $(this).find("title").text();
+			    //title = title + '... Watch the video';
 				var des = $(this).find("description").text();
 				var link = $(this).find("enclosure").attr("url");
 				console.log(link);
