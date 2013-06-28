@@ -9,10 +9,8 @@ function feedParsing(feedUrl) {
 		type:'GET',
 		success:function(xml) {
 			$(xml).find('item').each(function() {
-				
                 //assigning feed video item data to variable
 			    var title = $(this).find("title").text();
-			    //title = title + '... Watch the video';
 				var des = $(this).find("description").text();
 				var link = $(this).find("enclosure").attr("url");
 				console.log(link);
@@ -60,23 +58,11 @@ function feedParsing(feedUrl) {
 			})
 		},
 		error:function() {
-			//alert("I am sorry, But I can't fetch that feed");
+			alert("Oops, sorry! Something wrong happened. Please reload the page...");
 		}
 	});
 }
 
-// function  playSelectedVideo(e) {
-// 	var videoUrl = "http://ads.geo.rnmd.net/playVideo?siteId=rhythm_test&userId=758393002-&content=http://www.eonline.com/shared/Eonline/mobile/rhythm_eol_iphone_app/video/raw_20130614_phillippe_208778.m4v"; 
-// 	var videoUrl = (e.target.a);
-// 	console.log(videoUrl);
-// 	net.rnmd.sdk.playVideo(videoUrl);
-// }
-
-//$(".feed-container").on("click", ".video-item" , playSelectedVideo);
-//$(".video-item").click(playVideo);
-
-//$("h3 a").click(playSelectedVideo);
-//$(".feed-container").on("click", "a" , playSelectedVideo);
 
 
 
