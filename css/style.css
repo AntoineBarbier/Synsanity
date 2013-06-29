@@ -60,10 +60,10 @@ h2 {
 } */
 
 .video-thumb img{
-	max-height: 9.5em;
+/*	max-height: 9.5em;
+*/	width: 14em;
+	height: auto;
 	margin-top: .5em;
-/*	position: absolute;
-	top: 50%;*/
 }
 
 /* Mobile & Wide Mobile Layout
@@ -90,7 +90,9 @@ h2 {
 	}
 
 	.video-thumb img{
-		max-height: 4.5em;
+/*		max-height: 4.5em;
+*/		width: 7em;
+		height: auto;
 	}
 
 	.first-video-item {
