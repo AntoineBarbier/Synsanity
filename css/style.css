@@ -6,14 +6,26 @@ body {
 
 }
 
+.subBar {
+	background-color: #111111;
+	height: 2em;
+}
+
+.categoryName {
+  	padding: 0.5em 0 0 15px;
+}
+
+.date {
+  	padding: 0.5em 15px 0 0;
+}
 footer {
-	background-color: #000;
+	background-color: #111111;
 	text-align: center;
 	height: 2em;
 	margin-top: 1em;
 }
 
-footer a {
+footer a, .subBar li{
 	color: white;
 	font-weight: bold;
   	font-size: 0.8125em; 
@@ -24,7 +36,7 @@ footer a:hover{
 }
 
 .black-background {
-	background-color: #000;
+	background-color: #111111;
 }
 
 h1 a {
@@ -51,7 +63,7 @@ h2 {
 }
 
 .video-item{
-	border-bottom: 1px dotted #000;
+	border-bottom: 1px dotted #111111;
 	margin: 1em 1em;
 }
 
@@ -100,7 +112,7 @@ h2 {
 	}
 
 	.video-item {
-		border-bottom: 1px dotted #000;
+		border-bottom: 1px dotted #111111;
 		margin: 0.2em 0;
 	}
 
@@ -116,4 +128,7 @@ h2 {
 	}
 }
 
+li {
+	list-style-type: none;
+}
 

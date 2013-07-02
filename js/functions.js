@@ -1,4 +1,7 @@
 
+// Display date on right side of the page
+displayDate();
+
 //Function to parse feeds and build a row for each video element
 function feedParsing(feedUrl) { 
 	var i = 0;
@@ -13,7 +16,7 @@ function feedParsing(feedUrl) {
 			    var title = $(this).find("title").text();
 				var des = $(this).find("description").text();
 				var link = $(this).find("enclosure").attr("url");
-				console.log(link);
+				//console.log(link);
                 var thumb = $(this).find("link").text();
                 var link2= '#';
                 var onClickUrl= '"http://ads.geo.rnmd.net/playVideo?siteId=rhythm_test&userId=758393002&content=' + link;
@@ -29,20 +32,21 @@ function feedParsing(feedUrl) {
 				var $link3 = $('<a></a>').attr('href',link2).attr('target','_self').attr('onclick', onClickFunction).html(title);
                 var $link4 = $('<h3></h3>').append($link3);
 
+                //Fetching the pub date
+				var pubDate = new Date($(this).find("pubDate").text()); 
+				var day = pubDate.getDate();
+				var month = pubDate.getMonth() + 1;
+				var year = pubDate.getFullYear();
+				var date = day + '/' + month + '/' + year;
+				// var $date = $('<p></p>').html(date);
+
                 //Building the video description as p
-				var $des = $('<p></p>').html(des);
+				var $des = $('<p></p>').html(date + ' - ' + des);
 
                 //Building the video title + description div
 				var $videoItem = $('<div class="video-description"></div>').append($link4,$des);
                 var $videoItem2 = $('<div class="small-8 columns"></div>').append($videoItem);
-
-                //Fetching the pub date
-				// var pubDate = new Date($(this).find("pubDate").text()); 
-				// var day = pubDate.getDate();
-				// var month = pubDate.getMonth() + 1;
-				// var year = pubDate.getFullYear();
-				// var date = day + '/' + month + '/' + year;
-				// var $date = $('<div class="date"></div>').text(date)	
+	
 
 				// Wrapping the video elements within the row and video-item divs
 				var wrapperRow = "<div class='row'>";
@@ -53,6 +57,7 @@ function feedParsing(feedUrl) {
                 else {
                 	wrapperVideoItem = "<div class='video-item'>";
 				}
+				wrapperVideoItem = $(wrapperVideoItem).attr('data-guid', link);
 				$(".feed-container").append($(wrapperRow).append(($(wrapperVideoItem)).append($img3,$videoItem2)));	
 				i++;			
 			})
@@ -63,6 +68,54 @@ function feedParsing(feedUrl) {
 	});
 }
 
+
+$(".feed-container").on("click", ".row", function(){
+	//alert("row clicked")
+	var value = $(this).children().data('guid');
+	//console.log(value);
+	var videoUrl= 'http://ads.geo.rnmd.net/playVideo?siteId=rhythm_test&content=' + value;
+	//console.log(videoUrl);
+	net.rnmd.sdk.playVideo(videoUrl);
+});
+
+function displayDate() {
+	var month=new Array(12);
+	month[0]="January";
+	month[1]="February";
+	month[2]="March";
+	month[3]="April";
+	month[4]="May";
+	month[5]="June";
+	month[6]="July";
+	month[7]="August";
+	month[8]="September";
+	month[9]="October";
+	month[10]="November";
+	month[11]="December";
+	var currentDate = new Date();
+	var dateToDisplay = month[currentDate.getMonth()] + ' ' + currentDate.getDate() + ', ' + currentDate.getFullYear();
+	console.log(dateToDisplay);
+	$('#currentDate').html(dateToDisplay);
+}
+
+
+
+
+	// var 
+	// <div class="flex-video">
+	// 	<video src="" poster="http://images.eonline.com/shared/Eonline/mobile/rhythm_eol_iphone_app/stills/wanted_105_bonus_crf_209253.jpg" id="rnmd_video" controls="controls">
+
+	// 	<script>
+	// 	net.rnmd.sdk.setVideoSrcWithAd({
+	// 	siteId: 'rhythm_test',
+	// 	content: 'http://www.eonline.com/shared/Eonline/mobile/rhythm_eol_iphone_app/video/wanted_105_bonus_crf_209253.m4v',
+	// 	videoId: 'rnmd_video',
+	// 	host: 'ads.rnmd.net'
+	// 	});
+	// 	</script>
+		
+	// 	</video>
+	// </div>
 
 
 

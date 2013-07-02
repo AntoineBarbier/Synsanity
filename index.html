@@ -19,7 +19,7 @@
 		            <li class="name">
 		            	<h1><a href="#">Synsanity</a></h1>
 		            </li>
-		            <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+		            <li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
 		        </ul>
 
 		        <section class="top-bar-section">
@@ -29,11 +29,16 @@
 		            	<li class="divider hide-for-small"></li>
 		            	<li><a href="entertainment.html">Entertainment</a></li>
 		            	<li class="divider hide-for-small"></li>
-		            	<li><a href="news.html">News</a></li>
+		            	<li><a href="news.html">International News</a></li>
 		            </ul>
 		        </section>
 		    </nav>
 		</div> 
+
+		<div class="subBar">
+			<li class="left categoryName">Featured Videos</li>
+			<li class="right date" id="currentDate"></li>
+		</div>
 
 		<div class="feed-container">
 		</div>
@@ -50,19 +55,18 @@
 		    + ('__proto__' in {} ? 'zepto' : 'jquery')
 		    + '.js><\/script>');
 		</script>
-
-		<script src="http://ads.rnmd.net/js/rnmd_cs.js"></script>
- 		<script src="js/functions.js" ></script>
  		<script src="js/foundation.min.js"></script>
-	    
 	    <script>
 	      $(document)
 	        .foundation();
 	    </script>
-		
+		<script src="http://ads.rnmd.net/js/rnmd_cs.js"></script>
+ 		<script src="js/functions.js" ></script>
+	    	
 		<script>
 		feedUrl = 'http://pipes.yahoo.com/pipes/pipe.run?_id=4284e31d39db05677e64918395b0498c&_render=rss';
 		feedParsing(feedUrl);
+
 		</script>
 
 	</body>
