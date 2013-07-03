@@ -57,7 +57,7 @@ function feedParsing(feedUrl) {
                 else {
                 	wrapperVideoItem = "<div class='video-item'>";
 				}
-				wrapperVideoItem = $(wrapperVideoItem).attr('data-guid', link);
+				wrapperVideoItem = $(wrapperVideoItem).attr('data-guid', link).attr('data-title', title).attr('data-desc', des);
 				$(".feed-container").append($(wrapperRow).append(($(wrapperVideoItem)).append($img3,$videoItem2)));	
 				i++;			
 			})
@@ -94,28 +94,9 @@ function displayDate() {
 	month[11]="December";
 	var currentDate = new Date();
 	var dateToDisplay = month[currentDate.getMonth()] + ' ' + currentDate.getDate() + ', ' + currentDate.getFullYear();
-	console.log(dateToDisplay);
+	//console.log(dateToDisplay);
 	$('#currentDate').html(dateToDisplay);
 }
-
-
-
-
-	// var 
-	// <div class="flex-video">
-	// 	<video src="" poster="http://images.eonline.com/shared/Eonline/mobile/rhythm_eol_iphone_app/stills/wanted_105_bonus_crf_209253.jpg" id="rnmd_video" controls="controls">
-
-	// 	<script>
-	// 	net.rnmd.sdk.setVideoSrcWithAd({
-	// 	siteId: 'rhythm_test',
-	// 	content: 'http://www.eonline.com/shared/Eonline/mobile/rhythm_eol_iphone_app/video/wanted_105_bonus_crf_209253.m4v',
-	// 	videoId: 'rnmd_video',
-	// 	host: 'ads.rnmd.net'
-	// 	});
-	// 	</script>
-		
-	// 	</video>
-	// </div>
 
 
 
